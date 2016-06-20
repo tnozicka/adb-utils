@@ -106,10 +106,6 @@
                     "value": "https://kubernetes.default"
                   },
                   {
-                    "name": "KUBERNETES_NAMESPACE",
-                    "value": "${PROJECT}"
-                  },
-                  {
                     "name": "KUBERNETES_TRUST_CERTIFICATES",
                     "value": "true"
                   }
@@ -202,6 +198,10 @@
       "apiVersion": "v1",
       "metadata": {
         "name": "${JENKINS_SERVICE_NAME}",
+         "annotations": {
+           "service.alpha.openshift.io/dependencies": "[{\"name\": \"${JENKINS_SERVICE_NAME}-jnlp\", \"namespace\": \"\", \"kind\": \"Service\"}]",
+           "service.openshift.io/infrastructure": "true"
+         },        
         "creationTimestamp": null
       },
       "spec": {
@@ -242,12 +242,6 @@
       "displayName": "Memory Limit",
       "description": "Maximum amount of memory the container can use.",
       "value": "700Mi"
-    },
-    {
-      "name": "PROJECT",
-      "displayName": "Project",
-      "description": "The target project where jenkins pipeline operations should be performed/slaves launched.",
-      "value": "pipelineproject"
     },
     {
       "name": "NAMESPACE",
