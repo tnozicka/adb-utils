@@ -64,7 +64,7 @@
             "containers": [
               {
                 "name": "jenkins",
-                "image": "docker.io/openshift/jenkins-1-centos7:dev",
+                "image": "docker.io/openshift/jenkins-1-centos7@sha256:cf2fd64626805b390561acb9220951dc46a207e70ba7b7ed027439ac721f1e92",
                 "readinessProbe": {
                   "timeoutSeconds": 3,
                   "initialDelaySeconds": 3,
